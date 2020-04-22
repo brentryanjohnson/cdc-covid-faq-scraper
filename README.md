@@ -6,4 +6,13 @@ The scraper is directed at the [main FAQ page](https://www.cdc.gov/coronavirus/2
 
 The scraper outputs a CSV file with the questions and answers in separate columns.
 
-Note: The script strips out custom attribute markup, but it doesn't yet remove the text replacements for external link and pdf icons. Those still show up in the text as `external icon` and `pdf icon`, respectively.
+## Dependencies
+- python
+- pandas
+- requests
+- beautiful soup (bs4)
+- time
+- unicodedata
+
+## Enhancements needed
+The script strips out custom attribute markup, but it doesn't yet remove the text replacements for external link and pdf icons. Those still show up in the text as `external icon` and `pdf icon`, respectively.

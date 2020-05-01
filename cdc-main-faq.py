@@ -12,7 +12,7 @@ r = requests.get('https://www.cdc.gov/coronavirus/2019-ncov/faq.html')
 from bs4 import BeautifulSoup  
 soup = BeautifulSoup(r.text, 'html.parser')
 
-questions = soup.select('.accordion .card-title')
+questions = soup.select('.card-header .card-title')
 answers = soup.select('.accordion .card-body')
 
 question_list = []

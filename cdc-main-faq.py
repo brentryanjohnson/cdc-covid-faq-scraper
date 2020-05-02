@@ -15,22 +15,8 @@ soup = BeautifulSoup(r.text, 'html.parser')
 questions = soup.select('.card-header .card-title')
 answers = soup.select('.accordion .card-body')
 
-question_list = []
-for question in questions:
-    question = question.find('span').text
-    question_list.append(question)
-
-answer_list = []
-for answer in answers:
-#    answer = answer.find('p')
-    if answer is not None:
-        answer_list.append(answer)   
-
-#print(question_list)
-#print(answer_list)
-
 # Removes attributes from html output, except img and a attributes
-def remove_attributes(answer_list):
+def remove_attributes(answers):
     whitelist = ['a','img']
     for tag in soup.find_all(True):
         if tag.name not in whitelist:
@@ -40,9 +26,25 @@ def remove_attributes(answer_list):
             for attr in attrs:
                 if attr not in ['src','href']:
                     del tag.attrs[attr]
-    return answer_list
+    return answers
 
-answer_list = remove_attributes(answer_list)
+answers = remove_attributes(answers)
+
+question_list = []
+for question in questions:
+    question = question.find('span').text
+    question_list.append(question)
+
+answer_list = []
+for answer in answers:
+#    answer = answer.find('p')
+    if answer is not None:
+        answer_string = str(answer)
+        answer_strip = answer_string.replace('external icon', '').replace('pdf icon', '')
+        answer_list.append(answer_strip)
+
+#print(question_list)
+#print(answer_list)
 
 # Merges questions and answers via zip
 merged_qa = list(zip(question_list, answer_list))

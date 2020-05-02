@@ -15,4 +15,4 @@ The scraper outputs a CSV file with the questions and answers in separate column
 - unicodedata
 
 ## Enhancements needed
-The script strips out custom attribute markup, but it doesn't yet remove the text replacements for external link and pdf icons. Those still show up in the text as `external icon` and `pdf icon`, respectively.
+~~The script strips out custom attribute markup, but it doesn't yet remove the text replacements for external link and pdf icons. Those still show up in the text as `external icon` and `pdf icon`, respectively.~~ Fixed 5/2/20

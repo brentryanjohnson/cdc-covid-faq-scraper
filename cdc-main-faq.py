@@ -41,7 +41,8 @@ for answer in answers:
     if answer is not None:
         answer_string = str(answer)
         answer_strip = answer_string.replace('external icon', '').replace('pdf icon', '')
-        answer_list.append(answer_strip)
+        answer_anchors = answer_string.replace('href="/', 'href="https://www.cdc.gov/')
+        answer_list.append(answer_anchors)
 
 #print(question_list)
 #print(answer_list)
